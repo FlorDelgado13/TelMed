@@ -64,9 +64,9 @@
 	          	<a class="nav-link" type="submit" value="Cerrar Sesion">Cerrar Sesión</a>
 	          </button>
 	        </li> 	
-	          <!--<div th:if="${message}" class="alert alert-success">
-					        	<span th:text="${message}"></span>
-					        </div>-->
+	        <div th:if="${message}" class="alert alert-success">
+	        	<span th:text="${message}"></span>
+	        </div>
 <!-- 			          <li class="nav-item"> -->
 <!-- 			            <a class="nav-link" th:href="@{/hello}">Logout</a> -->
 <!-- 			          </li> -->
@@ -79,7 +79,7 @@
     
 <div class="title h1 text-center">Listado de Pacientes</div>
 <!--  <br> -->
-<!--         <div th:if="${(pacientes != null) and (!pacientes.empty)}"> -->
+<div th:if="${(pacientes != null) and (!pacientes.empty)}">
 <div class="container">
   <div class="row">
     <div class="col-sm-5 col-md-6">
@@ -91,17 +91,13 @@
                     <th>Bloquear</th>
                 </tr>
                 <tr>
-<!--                 <tr th:each="paciente : ${pacientes}"> -->
-<!--                     <td th:text="${paciente.usuario.nombre}">Nombre</td> -->
-<!--                     <td th:text="${paciente.dni}">DNI</td> -->
-<!--                     <td th:text="${paciente.usuario.rol}">Rol</td> -->
-<!--                     <td th:text="${paciente.usuario.email}">Email</td> -->
-						<td>Nombre</td>
-						<td>DNI</td>
-						<td>Rol</td>
-						<td>Email</td>
+                <tr th:each="paciente : ${pacientes}"> 
+                    <td th:text="${paciente.usuario.nombre}">Nombre</td>
+                    <td th:text="${paciente.dni}">DNI</td>
+                    <td th:text="${paciente.usuario.rol}">Rol</td>
+                    <td th:text="${paciente.usuario.email}">Email</td>
                     <td>
-                    	<form>
+                    	<form action="#" th:action="@{/paciente/{id} (id=${paciente.id})}" th:method="DELETE">
 <!--                     	<form action="#" th:action="@{/paciente/{id} (id=${paciente.id})}" th:method="DELETE"> -->
 <!--              				<button class="btn btn-danger" type="submit">Eliminar</button> -->
 							<img
@@ -121,15 +117,16 @@
         </div>
       </div>
     </div>
-<!--         <div th:if="${(patients == null) or (patients.empty)}" class="alert alert-danger"> -->
-<!--             No hay pacientes registrados. -->
-<!--         </div> -->
+</div>
+   <div th:if="${(patients == null) or (patients.empty)}" class="alert alert-danger">
+       No hay pacientes registrados.
+   </div>
 	<div class="col-6">
       <form th:action="@{/hello}"method="GET">
       	<input class="button cards" type="submit" value="Volver"></input> 
 <!--             <button type="sumbit" class="btn btn-primary mt-3">Volver</button> -->
-       </form>
-    </div>
- 
-    </body>
+      </form>
+</div>
+
+</body>
 </html>

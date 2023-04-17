@@ -324,7 +324,7 @@ hr {
     -moz-box-sizing: border-box;
     color: inherit;
     font-family: inherit;
-    color: #fff;
+    color: #000000;
 }
 .form-wrap form .button {
     margin: 3em 5em;

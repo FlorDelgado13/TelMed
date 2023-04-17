@@ -61,9 +61,9 @@
 	          	<a class="nav-link" type="submit" value="Cerrar Sesion">Cerrar Sesión</a>
 	          </button>
 	        </li> 	
-	          <!--<div th:if="${message}" class="alert alert-success">
-					        	<span th:text="${message}"></span>
-					        </div>-->
+          <div th:if="${message}" class="alert alert-success">
+			<span th:text="${message}"></span>
+		  </div>
 <!-- 			          <li class="nav-item"> -->
 <!-- 			            <a class="nav-link" th:href="@{/hello}">Logout</a> -->
 <!-- 			          </li> -->
@@ -76,23 +76,19 @@
 
 <div class="title h1 text-center">Detalles del paciente</div>
     
-<!--     <p th:utext="'<strong>Nombre completo:</strong> ' + ${paciente.usuario.nombre}">Nombre completo</p> -->
-<!--     <p th:utext="'<strong>DNI:</strong> ' + ${paciente.dni}">DNI</p> -->
-<!--     <p th:utext="'<strong>Email:</strong> ' + ${paciente.usuario.email}">Email</p> -->
-<!--     <p th:utext="'<strong>Estado:</strong> ' + ${paciente.usuario.bloqueado ? 'BLOQUEADO' : 'ACTIVO'}">Estado</p> -->
 <div class="lista">
   <div class="container">
    	<div class="row">
    		<div class="col-sm-5 col-md-6">
 		    <table class="table table-striped">
 			    <strong>
-				    <p>Nombre completo: </p>
+				    <p th:utext="'Nombre completo: ' + ${paciente.usuario.nombre}">Nombre completo: </p>
 				    <hr class="tab">
-				    <p>DNI: </p>
+				    <p th:utext="'DNI: ' + ${paciente.dni}">DNI: </p>
 				    <hr class="tab">
-				    <p>Email: </p>
+				    <p th:utext="'Email: ' + ${paciente.usuario.email}">Email: </p>
 				    <hr class="tab">
-				    <p>Estado: </p>
+				    <p th:utext="'Estado: ' + ${paciente.usuario.bloqueado ? 'BLOQUEADO' : 'ACTIVO'}">Estado: </p>
 				    <hr class="tab">
 				</strong>
 			</table>
@@ -101,11 +97,11 @@
   </div>
 </div>
   
-    <div class="col-6">
-      <form th:action="@{/hello}"method="GET">
-      	<input class="button cards" type="submit" value="Volver"></input> 
+<div class="col-6">
+  <form th:action="@{/hello}"method="GET">
+  	<input class="button cards" type="submit" value="Volver"></input> 
 <!--             <button type="sumbit" class="btn btn-primary mt-3">Volver</button> -->
-       </form>
-    </div>
+   </form>
+</div>
 </body>
 </html>
